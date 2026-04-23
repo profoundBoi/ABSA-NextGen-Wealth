@@ -1,0 +1,155 @@
+
+.tracks-page,
+.track-detail-page {
+  background: #0f1f24;
+  min-height: 100vh;
+  padding: 50px 40px;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #e6eceb;
+}
+
+
+
+.page-title,
+h1, h2, h3, h4 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: white;
+  font-weight: 700;
+}
+
+
+
+p, small, label {
+  color: #c9d6d3;
+  font-size: 14px;
+}
+
+
+
+.page-description {
+  max-width: 900px;
+  margin-bottom: 40px;
+
+  background: #1a3238;
+  padding: 25px 30px;
+  border-radius: 16px;
+
+  border-left: 5px solid #c0002f;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.page-description h2 {
+  color: #ffffff;
+  font-size: 18px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.page-description p {
+  margin-bottom: 12px;
+  color: #d6e2df;
+  line-height: 1.6;
+}
+
+.page-description .highlight {
+  margin-top: 10px;
+  padding: 10px 15px;
+
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+
+  font-size: 13px;
+  color: #b8c9c5;
+}
+
+
+
+.track-cards {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.track-card {
+  background: #1f3a44;
+  padding: 30px;
+  border-radius: 20px;
+  width: 260px;
+  text-align: center;
+  color: #e6eceb;
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+}
+
+.track-card:hover {
+  transform: translateY(-5px);
+}
+
+.track-card button {
+  margin-top: 20px;
+  padding: 12px 18px;
+  border-radius: 25px;
+  border: none;
+  background: #1f3a44;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.track-card button:hover {
+  background: #c0002f;
+}
+
+
+.track-overview {
+  background: #1f3a44;
+  padding: 20px;
+  border-radius: 15px;
+  color: #e6eceb;
+}
+
+
+
+.milestones {
+  margin-top: 30px;
+}
+
+.milestone {
+  background: #1f3a44;
+  padding: 15px;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  color: #e6eceb;
+  transition: 0.2s;
+}
+
+.milestone:hover {
+  transform: scale(1.02);
+}
+
+.milestone.done {
+  background: #2e5d5a;
+}
+
+
+.recommendation {
+  margin-top: 30px;
+  background: #1f3a44;
+  padding: 20px;
+  border-radius: 15px;
+  color: #e6eceb;
+}
+
+
+.info-tile {
+  margin-top: 20px;
+  background: #162f36;
+  color: #ffffff;
+  padding: 20px;
+  border-radius: 15px;
+}

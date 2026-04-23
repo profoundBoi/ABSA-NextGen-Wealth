@@ -1,0 +1,191 @@
+
+.simulation-page {
+  background: #0f1f24;
+  min-height: 100vh;
+  padding: 50px 40px;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #e6eceb;
+}
+
+
+
+.page-title {
+  font-size: 30px;
+  margin-bottom: 30px;
+  color: white;
+  font-weight: 700;
+}
+
+
+.simulation-intro {
+  max-width: 900px;
+  margin-bottom: 40px;
+
+  background: #1a3238;
+  padding: 25px 30px;
+  border-radius: 16px;
+
+  border-left: 5px solid #c0002f;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.simulation-intro h2 {
+  font-size: 20px;
+  color: white;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.simulation-intro p {
+  color: #d6e2df;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.intro-highlight {
+  margin-top: 10px;
+  padding: 12px 15px;
+
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+
+  font-size: 13px;
+  color: #b8c9c5;
+}
+
+
+
+.simulation-cards {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.sim-card {
+  background: #1f3a44;
+  padding: 30px;
+  border-radius: 20px;
+  width: 260px;
+  text-align: center;
+  color: #e6eceb;
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+}
+
+.sim-card:hover {
+  transform: translateY(-5px);
+}
+
+
+.icon {
+  font-size: 48px;
+  margin-bottom: 15px;
+}
+
+.sim-card h3 {
+  margin-bottom: 10px;
+  color: white;
+}
+
+.sim-card p {
+  font-size: 14px;
+  color: #c9d6d3;
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+.sim-card button {
+  margin-top: 10px;
+  padding: 12px 18px;
+  border-radius: 25px;
+  border: none;
+  background: #1f3a44;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.sim-card button:hover {
+  background: #c0002f;
+}
+
+/* ========================= */
+/* STUDIO (SIMULATION DETAIL) */
+/* ========================= */
+
+.studio-container {
+  background: #1f3a44;
+  padding: 40px;
+  border-radius: 20px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 30px;
+}
+
+/* SIDES */
+.studio-side {
+  width: 30%;
+  text-align: center;
+}
+
+/* OUTPUT BOX */
+.output {
+  background: #dfe6e5;
+  color: #1f3a44;
+  padding: 12px;
+  border-radius: 20px;
+  margin: 10px 0;
+  font-weight: 500;
+}
+
+/* PILL */
+.pill {
+  background: #cfd9d7;
+  color: #1f3a44;
+  padding: 12px;
+  border-radius: 25px;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+/* ========================= */
+/* CENTER INPUT */
+/* ========================= */
+
+.studio-center {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.studio-center input {
+  padding: 14px;
+  border-radius: 25px;
+  border: none;
+  background: #cfd9d7;
+  font-size: 14px;
+  color: #1f3a44;
+}
+
+/* BUTTON */
+.studio-center button {
+  padding: 14px;
+  border-radius: 25px;
+  border: none;
+  background: #2e7d32; /* nicer green */
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.studio-center button:hover {
+  background: #c0002f;
+}

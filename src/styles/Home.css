@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+.home {
+  background: #0f1f24;
+  min-height: 100vh;
+  padding: 40px;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+}
+
+
+.home-header {
+  margin-bottom: 30px;
+}
+
+/* SAME STYLE LANGUAGE AS SNAPSHOT DESCRIPTION */
+.page-description {
+  max-width: 800px;
+
+  background: #1f3a44;
+  padding: 25px 28px;
+
+  border-radius: 16px;
+  border-left: 4px solid #e63946;
+
+  color: #c9d6d3;
+  line-height: 1.6;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* TITLE */
+.page-description h1 {
+  font-size: 26px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+/* PARAGRAPHS */
+.page-description p {
+  font-size: 14px;
+  margin-bottom: 12px;
+  color: #b0bec5;
+}
+
+/* EMPHASIS */
+.page-description strong {
+  color: #ffffff;
+}
+
+.top-section {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+
+.profile-card {
+  width: 250px;
+  height: 250px;
+  background: #1f3a44;
+  border-radius: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-circle {
+  width: 120px;
+  height: 120px;
+  background: #2c4a54;
+  border-radius: 50%;
+}
+
+
+.notifications {
+  flex: 1;
+}
+
+.notifications h3 {
+  background: #2c4a54;
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.notification {
+  background: #1f3a44;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.notification.warning {
+  border-left: 4px solid #e63946;
+  color: #ff6b6b;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+
+.stat-card {
+  background: #1f3a44;
+  padding: 25px;
+  border-radius: 16px;
+  text-align: center;
+  transition: 0.2s;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  background: #274c57;
+}
+
+.stat-card h4 {
+  font-size: 14px;
+  color: #b0bec5;
+  margin-bottom: 10px;
+}
+
+.stat-card p {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.mini-bar {
+  margin-top: 10px;
+  height: 8px;
+  background: #2c4a54;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.mini-bar div {
+  height: 100%;
+  background: #e63946;
+}
+
+
+.mini-chart {
+  font-size: 40px;
+}

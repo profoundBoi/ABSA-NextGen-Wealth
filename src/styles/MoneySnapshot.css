@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+
+.snapshot-page {
+  background: #0f1f24;
+  min-height: 100vh;
+  padding: 40px;
+  font-family: 'Montserrat', sans-serif;
+  color: #ffffff;
+}
+
+
+.page-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  letter-spacing: 0.5px;
+}
+
+
+.top-section {
+  display: flex;
+  gap: 40px;
+  align-items: stretch;
+}
+
+
+.input-card {
+  flex: 1;
+  background: #1f3a44;
+  padding: 30px;
+  border-radius: 16px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.input-group label {
+  font-size: 13px;
+  color: #b0bec5;
+}
+
+.input-group input {
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  background: #2c4a54;
+  color: white;
+  font-size: 14px;
+  outline: none;
+}
+
+.input-group input:focus {
+  border: 1px solid #e63946;
+}
+
+.input-group small {
+  font-size: 11px;
+  color: #90a4ae;
+}
+
+
+.chart-container {
+  flex: 1;
+  background: #1f3a44;
+  border-radius: 16px;
+  padding: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.tiles-section {
+  margin-top: 50px;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+
+.tile {
+  background: #1f3a44;
+  padding: 25px;
+  border-radius: 14px;
+  text-align: center;
+
+  transition: 0.2s;
+}
+
+.tile:hover {
+  transform: translateY(-3px);
+  background: #274c57;
+}
+
+.tile h4 {
+  font-size: 13px;
+  font-weight: 500;
+  color: #90a4ae;
+  margin-bottom: 10px;
+}
+
+.tile p {
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+
+.progress-section {
+  margin-top: 40px;
+}
+
+.progress-section h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.progress-bar {
+  height: 12px;
+  background: #2c4a54;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.page-description {
+  max-width: 800px;
+  margin-bottom: 30px;
+  color: #c9d6d3;
+  line-height: 1.6;
+}
+
+.page-description p {
+  margin-bottom: 25px
+}
+
+.progress-fill {
+  height: 100%;
+  background: #e63946;
+}
+
+
+.insights {
+  margin-top: 30px;
+  background: #1f3a44;
+  padding: 20px;
+  border-radius: 14px;
+}
+
+.insights h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.warning {
+  color: #ff6b6b;
+  font-weight: 600;
+}
+
+
+.info-tile {
+  margin-top: 20px;
+  background: #2c1f21;
+  padding: 20px;
+  border-left: 4px solid #e63946;
+  border-radius: 12px;
+}
+
+.info-tile h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
