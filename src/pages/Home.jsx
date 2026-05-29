@@ -6,19 +6,26 @@ function Home() {
   const { userData } = useContext(UserContext);
 
   const totalExpenses =
-    userData.rent + userData.car + userData.expenses;
+  userData.rent + userData.car + userData.expenses;
 
   const netIncome = userData.income - totalExpenses;
 
   const savingsRate =
-    (userData.currentSavings / userData.income) * 100;
+  userData.income > 0
+    ? (userData.currentSavings / userData.income) * 100
+    : 0;
 
   const savingsProgress =
-    (userData.currentSavings / userData.savingsGoal) * 100;
+  userData.savingsGoal > 0
+    ? (userData.currentSavings / userData.savingsGoal) * 100
+    : 0;
 
-  const emergencyFundTarget = userData.expenses * 3;
+  const emergencyFundTarget = totalExpenses * 3;
+
   const emergencyProgress =
-    (userData.currentSavings / emergencyFundTarget) * 100;
+  emergencyFundTarget > 0
+    ? (userData.currentSavings / emergencyFundTarget) * 100
+    : 0;
 
   const hasEmergencyFund = userData.currentSavings > 0;
 
@@ -112,7 +119,7 @@ function Home() {
           <h4>Savings Goal</h4>
 
           <div className="mini-bar">
-            <div style={{ width: `${savingsProgress}%` }}></div>
+            <div style={{ width: `${Math.min(savingsProgress, 100)}%` }}></div>
           </div>
 
           <small>{Math.round(savingsProgress)}%</small>

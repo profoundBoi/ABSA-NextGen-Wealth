@@ -9,7 +9,7 @@ function MoneySnapshot() {
   function handleChange(e) {
     setUserData({
       ...userData,
-      [e.target.name]: Number(e.target.value),
+      [e.target.name]: Number(e.target.value) || 0,
     });
   }
 
@@ -22,7 +22,9 @@ function MoneySnapshot() {
   const afterTax = userData.income - tax;
 
   const savingsProgress =
-    (userData.currentSavings / userData.savingsGoal) * 100;
+  userData.savingsGoal > 0
+    ? (userData.currentSavings / userData.savingsGoal) * 100
+    : 0;
 
   const chartData = [
     { name: "Rent", value: userData.rent },
@@ -83,7 +85,7 @@ function MoneySnapshot() {
         <div className="chart-container">
           <PieChart width={350} height={350}>
             <Pie
-              data={chartData}
+              data={chartData.filter(item => item.value > 0)}
               dataKey="value"
               outerRadius={120}
               label
