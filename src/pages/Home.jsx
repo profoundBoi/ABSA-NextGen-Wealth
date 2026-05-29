@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { UserContext } from "../context/UserContext";
 import "../styles/Home.css";
+import { calculatePAYE } from "../utils/calculations";
 
 function Home() {
   const { userData } = useContext(UserContext);
@@ -8,7 +9,13 @@ function Home() {
   const totalExpenses =
   userData.rent + userData.car + userData.expenses;
 
-  const netIncome = userData.income - totalExpenses;
+  const tax = calculatePAYE(userData.income);
+
+  const afterTaxIncome =
+  userData.income - tax;
+
+  const netIncome =
+  afterTaxIncome - totalExpenses;
 
   const savingsRate =
   userData.income > 0
@@ -50,7 +57,6 @@ function Home() {
   </div>
 </div>
 
-
       <div className="top-section">
 
         <div className="profile-card">
@@ -71,6 +77,7 @@ function Home() {
               ⚠️ Housing costs too high
             </div>
           )}
+          
 
           {!hasEmergencyFund && (
             <div className="notification warning">
@@ -78,6 +85,8 @@ function Home() {
             </div>
           )}
         </div>
+
+        
 
       </div>
 
@@ -87,6 +96,11 @@ function Home() {
         <div className="stat-card">
           <h4>Monthly Income</h4>
           <p>R{userData.income}</p>
+        </div>
+
+        <div className="stat-card">
+         <h4>Estimated PAYE</h4>
+         <p>R{Math.round(tax).toLocaleString()}</p>
         </div>
 
         <div className="stat-card">
@@ -101,7 +115,7 @@ function Home() {
 
         <div className="stat-card">
           <h4>Net Income</h4>
-          <p>R{netIncome}</p>
+          <p>R{Math.round(netIncome).toLocaleString()}</p>
         </div>
 
         <div className="stat-card">
@@ -116,12 +130,10 @@ function Home() {
         </div>
 
         <div className="stat-card">
-          <h4>Savings Goal</h4>
-
-          <div className="mini-bar">
-            <div style={{ width: `${Math.min(savingsProgress, 100)}%` }}></div>
-          </div>
-
+        <h4>Savings Goal</h4>
+         <div className="mini-bar">
+          <div style={{ width: `${Math.min(savingsProgress, 100)}%` }}></div>
+         </div>
           <small>{Math.round(savingsProgress)}%</small>
         </div>
 

@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { UserContext } from "../context/UserContext";
 import "../styles/MoneySnapshot.css";
 import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
+import { calculatePAYE } from "../utils/calculations";
 
 function MoneySnapshot() {
   const { userData, setUserData } = useContext(UserContext);
@@ -18,8 +19,8 @@ function MoneySnapshot() {
 
   const netIncome = userData.income - totalExpenses;
 
-  const tax = userData.income * 0.18;
-  const afterTax = userData.income - tax;
+  const tax = calculatePAYE(userData.income);
+  const afterTax = Math.max(userData.income - tax, 0);
 
   const savingsProgress =
   userData.savingsGoal > 0
@@ -105,22 +106,22 @@ function MoneySnapshot() {
 
         <div className="tile">
           <h4>Income</h4>
-          <p>R{userData.income}</p>
+          <p>R{userData.income.toLocaleString()}</p>
         </div>
 
         <div className="tile">
           <h4>Expenses</h4>
-          <p>R{totalExpenses}</p>
+          <p>R{totalExpenses.toLocaleString()}</p>
         </div>
 
         <div className="tile">
           <h4>Net</h4>
-          <p>R{netIncome}</p>
+          <p>R{netIncome.toLocaleString()}</p>
         </div>
 
         <div className="tile">
           <h4>After Tax</h4>
-          <p>R{afterTax}</p>
+          <p>R{afterTax.toLocaleString()}</p>
         </div>
 
       </div>
