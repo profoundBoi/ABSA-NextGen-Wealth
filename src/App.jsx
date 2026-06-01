@@ -6,6 +6,8 @@ import SimulationLab from "./pages/SimulationLab";
 import SimulationStudio from "./pages/SimulationStudio";
 import StrategyTracks from "./pages/StrategyTracks";
 import TrackDetails from "./pages/TrackDetails";
+import CarVsInvest from "./pages/CarVsInvest";
+import LocalVsOffshore from "./pages/LocalVsOffshore";
 
 function App() {
   return (
@@ -19,6 +21,11 @@ function App() {
         <Route path="/simulation/property" element={<SimulationStudio />} />
         <Route path="/tracks" element={<StrategyTracks />} />
         <Route path="/tracks/balanced" element={<TrackDetails />} />
+        <Route path="/simulation/car" element={<CarVsInvest />} />
+<Route
+  path="/simulation/invest"
+  element={<LocalVsOffshore />}
+/>
       </Routes>
     </>
   );

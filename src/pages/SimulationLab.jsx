@@ -7,7 +7,6 @@ function SimulationLab() {
 
       <h1 className="page-title">Simulation Lab</h1>
 
-      {/* 🔥 STYLED DESCRIPTION */}
       <div className="simulation-intro">
         <h2>Test Your Financial Decisions</h2>
 
@@ -24,7 +23,6 @@ function SimulationLab() {
 
       <div className="simulation-cards">
 
-        {/* PROPERTY */}
         <div className="sim-card">
           <div className="icon">📍</div>
 
@@ -40,7 +38,6 @@ function SimulationLab() {
           </Link>
         </div>
 
-        {/* CAR */}
         <div className="sim-card">
           <div className="icon">🚗</div>
 
@@ -56,7 +53,6 @@ function SimulationLab() {
           </Link>
         </div>
 
-        {/* INVEST */}
         <div className="sim-card">
           <div className="icon">📈</div>
 
