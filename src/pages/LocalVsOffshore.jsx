@@ -3,13 +3,20 @@ import "../styles/Simulation.css";
 import { localVsOffshoreSimulation } from "../utils/simulationCalculations";
 
 function LocalVsOffshore() {
-  const [amount, setAmount] = useState(100000);
+  const [investment, setInvestment] = useState(100000);
+  const [monthlyContribution, setMonthlyContribution] = useState(2000);
+  const [years, setYears] = useState(10);
+  const [randDepreciation, setRandDepreciation] = useState(4);
+
   const [result, setResult] = useState(null);
 
   function runSimulation() {
     setResult(
       localVsOffshoreSimulation(
-        Number(amount)
+        Number(investment),
+        Number(monthlyContribution),
+        Number(years),
+        Number(randDepreciation)
       )
     );
   }
@@ -17,47 +24,144 @@ function LocalVsOffshore() {
   return (
     <div className="simulation-page">
       <h1 className="page-title">
-        Local vs Offshore
+        Local vs Offshore Investing
       </h1>
+
+      <div className="simulation-intro">
+        <h2>Investment Diversification Planner</h2>
+
+        <p>
+          Compare the potential growth of investing
+          locally versus offshore using realistic
+          South African assumptions.
+        </p>
+
+        <div className="intro-highlight">
+          💡 Offshore investments may benefit from
+          global market growth and a weakening rand,
+          while local investments provide exposure to
+          South African companies and assets.
+        </div>
+      </div>
 
       <div className="studio-container">
 
+        {/* LOCAL */}
         <div className="studio-side">
-          <h3>JSE Investment</h3>
+          <h3>Local Investment</h3>
 
           {result && (
-            <div className="output">
-              R{result.localValue}
-            </div>
+            <>
+              <div className="output">
+                Final Value
+                <br />
+                R{result.localValue.toLocaleString()}
+              </div>
+            </>
           )}
         </div>
 
+        {/* INPUTS */}
         <div className="studio-center">
 
-          <input
-            value={amount}
-            onChange={(e) =>
-              setAmount(e.target.value)
-            }
-          />
+  <h3>Inputs</h3>
 
-          <button onClick={runSimulation}>
-            Run Simulation
-          </button>
+  <div className="input-group">
+    <label>Initial Investment (R)</label>
+    <input
+      type="number"
+      value={investment}
+      onChange={(e) =>
+        setInvestment(e.target.value)
+      }
+    />
+    <small>
+      The amount you already have available to invest.
+    </small>
+  </div>
 
-        </div>
+  <div className="input-group">
+    <label>Monthly Contribution (R)</label>
+    <input
+      type="number"
+      value={monthlyContribution}
+      onChange={(e) =>
+        setMonthlyContribution(e.target.value)
+      }
+    />
+    <small>
+      The amount you plan to invest every month.
+    </small>
+  </div>
 
+  <div className="input-group">
+    <label>Investment Period (Years)</label>
+    <input
+      type="number"
+      value={years}
+      onChange={(e) =>
+        setYears(e.target.value)
+      }
+    />
+    <small>
+      How long you plan to keep the investment.
+    </small>
+  </div>
+
+  <div className="input-group">
+    <label>Expected Rand Depreciation (%)</label>
+    <input
+      type="number"
+      value={randDepreciation}
+      onChange={(e) =>
+        setRandDepreciation(e.target.value)
+      }
+    />
+    <small>
+      Estimated annual weakening of the Rand against major currencies.
+    </small>
+  </div>
+
+  <button onClick={runSimulation}>
+    Run Simulation
+  </button>
+
+</div>
+
+        {/* OFFSHORE */}
         <div className="studio-side">
-          <h3>Offshore ETF</h3>
+          <h3>Offshore Investment</h3>
 
           {result && (
-            <div className="output">
-              R{result.offshoreValue}
-            </div>
+            <>
+              <div className="output">
+                Final Value
+                <br />
+                R{result.offshoreValue.toLocaleString()}
+              </div>
+
+              <div className="output">
+                Difference
+                <br />
+                R{result.difference.toLocaleString()}
+              </div>
+            </>
           )}
         </div>
 
       </div>
+
+      {result && (
+        <>
+          <div className="pill">
+            {result.recommendation}
+          </div>
+
+          <div className="pill">
+            {result.suggestedAllocation}
+          </div>
+        </>
+      )}
     </div>
   );
 }

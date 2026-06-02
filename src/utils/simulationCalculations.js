@@ -168,53 +168,60 @@ export function carVsInvestSimulation(
 export function localVsOffshoreSimulation(
   investment,
   monthlyContribution,
-  years = 10
+  years,
+  randDepreciation
 ) {
-  let localValue =
-    investment;
+  let localValue = investment;
+  let offshoreValue = investment;
 
-  let offshoreValue =
-    investment;
-
-  const localReturn =
-    0.09 / 12;
-
+  // Approximate long-term assumptions
+  const localReturn = 0.09 / 12; // 9% p.a.
   const offshoreReturn =
-    0.12 / 12;
+    (0.10 + randDepreciation / 100) / 12; // S&P growth + weaker rand
 
-  for (
-    let i = 0;
-    i < years * 12;
-    i++
-  ) {
+  const months = years * 12;
+
+  for (let i = 0; i < months; i++) {
     localValue =
-      localValue *
-        (1 + localReturn) +
+      localValue * (1 + localReturn) +
       monthlyContribution;
 
     offshoreValue =
-      offshoreValue *
-        (1 + offshoreReturn) +
+      offshoreValue * (1 + offshoreReturn) +
       monthlyContribution;
   }
 
   const difference =
-    offshoreValue -
-    localValue;
+    offshoreValue - localValue;
+
+  let recommendation = "";
+
+  if (difference > 500000) {
+    recommendation =
+      "Offshore investing produced significantly higher returns due to stronger market growth and currency diversification.";
+  } else if (difference > 100000) {
+    recommendation =
+      "Offshore investing outperformed local investing, but diversification remains important.";
+  } else {
+    recommendation =
+      "Both options produced similar results. A diversified portfolio may be the best approach.";
+  }
+
+  let suggestedAllocation = "";
+
+  if (years >= 10) {
+    suggestedAllocation =
+      "Suggested Allocation: 70% Offshore / 30% Local";
+  } else {
+    suggestedAllocation =
+      "Suggested Allocation: 60% Offshore / 40% Local";
+  }
 
   return {
-    localValue:
-      Math.round(localValue),
-
-    offshoreValue:
-      Math.round(offshoreValue),
-
-    difference:
-      Math.round(difference),
-
-    recommendation:
-      offshoreValue > localValue
-        ? "Offshore investing may provide stronger growth and diversification."
-        : "Local investing remains competitive.",
+    localValue: Math.round(localValue),
+    offshoreValue: Math.round(offshoreValue),
+    difference: Math.round(difference),
+    recommendation,
+    suggestedAllocation,
   };
 }
