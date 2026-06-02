@@ -2,7 +2,7 @@ import { useState } from "react";
 import "../styles/Simulation.css";
 import { rentVsBuySimulation } from "../utils/simulationCalculations";
 
-function SimulationStudio() {
+function RentVsBuy() {
   const [salary, setSalary] = useState(35000);
   const [housePrice, setHousePrice] = useState(1500000);
   const [deposit, setDeposit] = useState(150000);
@@ -170,4 +170,4 @@ function SimulationStudio() {
   );
 }
 
-export default SimulationStudio;
+export default RentVsBuy;

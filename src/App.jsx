@@ -3,7 +3,7 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import MoneySnapshot from "./pages/MoneySnapshot";
 import SimulationLab from "./pages/SimulationLab";
-import SimulationStudio from "./pages/SimulationStudio";
+import RentVsBuy from "./pages/RentVsBuy";
 import StrategyTracks from "./pages/StrategyTracks";
 import TrackDetails from "./pages/TrackDetails";
 import CarVsInvest from "./pages/CarVsInvest";
@@ -18,14 +18,11 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/snapshot" element={<MoneySnapshot />} />
         <Route path="/simulation" element={<SimulationLab />} />
-        <Route path="/simulation/property" element={<SimulationStudio />} />
+        <Route path="/simulation/property" element={<RentVsBuy />} />
         <Route path="/tracks" element={<StrategyTracks />} />
         <Route path="/tracks/balanced" element={<TrackDetails />} />
         <Route path="/simulation/car" element={<CarVsInvest />} />
-<Route
-  path="/simulation/invest"
-  element={<LocalVsOffshore />}
-/>
+        <Route path="/simulation/invest" element={<LocalVsOffshore />} />
       </Routes>
     </>
   );
