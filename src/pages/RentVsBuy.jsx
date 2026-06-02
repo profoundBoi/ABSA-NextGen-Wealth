@@ -45,7 +45,6 @@ function RentVsBuy() {
 
       <div className="studio-container">
 
-        {/* BUYING SIDE */}
         <div className="studio-side">
           <h3>Buying Property</h3>
 
@@ -84,61 +83,74 @@ function RentVsBuy() {
           )}
         </div>
 
-        {/* INPUTS */}
-        <div className="studio-center">
-          <h3>Inputs</h3>
+<div className="studio-center">
+  <h3>Inputs</h3>
 
-          <input
-            type="number"
-            placeholder="Monthly Salary"
-            value={salary}
-            onChange={(e) =>
-              setSalary(e.target.value)
-            }
-          />
+  <div className="input-group">
+    <label>Monthly Salary (R)</label>
+    <input
+      type="number"
+      value={salary}
+      onChange={(e) =>
+        setSalary(e.target.value)
+      }
+    />
+    <small>Your gross monthly income before deductions.</small>
+  </div>
 
-          <input
-            type="number"
-            placeholder="House Price"
-            value={housePrice}
-            onChange={(e) =>
-              setHousePrice(e.target.value)
-            }
-          />
+  <div className="input-group">
+    <label>Property Price (R)</label>
+    <input
+      type="number"
+      value={housePrice}
+      onChange={(e) =>
+        setHousePrice(e.target.value)
+      }
+    />
+    <small>The purchase price of the property.</small>
+  </div>
 
-          <input
-            type="number"
-            placeholder="Deposit"
-            value={deposit}
-            onChange={(e) =>
-              setDeposit(e.target.value)
-            }
-          />
+  <div className="input-group">
+    <label>Deposit (R)</label>
+    <input
+      type="number"
+      value={deposit}
+      onChange={(e) =>
+        setDeposit(e.target.value)
+      }
+    />
+    <small>The amount you can pay upfront.</small>
+  </div>
 
-          <input
-            type="number"
-            placeholder="Interest Rate (%)"
-            value={interest}
-            onChange={(e) =>
-              setInterest(e.target.value)
-            }
-          />
+  <div className="input-group">
+    <label>Bond Interest Rate (%)</label>
+    <input
+      type="number"
+      value={interest}
+      onChange={(e) =>
+        setInterest(e.target.value)
+      }
+    />
+    <small>Current South African home loan interest rate.</small>
+  </div>
 
-          <input
-            type="number"
-            placeholder="Monthly Rent"
-            value={rent}
-            onChange={(e) =>
-              setRent(e.target.value)
-            }
-          />
+  <div className="input-group">
+    <label>Monthly Rent (R)</label>
+    <input
+      type="number"
+      value={rent}
+      onChange={(e) =>
+        setRent(e.target.value)
+      }
+    />
+    <small>The rent you'd pay for a similar property.</small>
+  </div>
 
-          <button onClick={runSimulation}>
-            Run Simulation
-          </button>
-        </div>
+  <button onClick={runSimulation}>
+    Run Simulation
+  </button>
+</div>
 
-        {/* RENTING SIDE */}
         <div className="studio-side">
           <h3>Renting</h3>
 
