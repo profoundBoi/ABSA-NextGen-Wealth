@@ -8,6 +8,10 @@ import StrategyTracks from "./pages/StrategyTracks";
 import TrackDetails from "./pages/TrackDetails";
 import CarVsInvest from "./pages/CarVsInvest";
 import LocalVsOffshore from "./pages/LocalVsOffshore";
+import LifestyleTrack from "./pages/LifestyleTrack";
+import PropertyTrack from "./pages/PropertyTrack";
+import InvestorTrack from "./pages/InvestorTrack";
+
 
 function App() {
   return (
@@ -23,6 +27,9 @@ function App() {
         <Route path="/tracks/balanced" element={<TrackDetails />} />
         <Route path="/simulation/car" element={<CarVsInvest />} />
         <Route path="/simulation/invest" element={<LocalVsOffshore />} />
+        <Route path="/tracks/lifestyle" element={<LifestyleTrack />} />
+        <Route path="/tracks/property" element={<PropertyTrack />} />
+        <Route path="/tracks/investor" element={<InvestorTrack />} />
       </Routes>
     </>
   );
