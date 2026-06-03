@@ -71,51 +71,71 @@ function CarVsInvest() {
           )}
         </div>
 
-        <div className="studio-center">
+       <div className="studio-center">
 
-          <h3>Inputs</h3>
+  <h3>Inputs</h3>
 
-          <input
-            type="number"
-            placeholder="Vehicle Price"
-            value={carPrice}
-            onChange={(e) =>
-              setCarPrice(e.target.value)
-            }
-          />
+  <div className="input-group">
+    <label>Vehicle Purchase Price (R)</label>
+    <input
+      type="number"
+      value={carPrice}
+      onChange={(e) =>
+        setCarPrice(e.target.value)
+      }
+    />
+    <small>
+      The total purchase price of the vehicle.
+    </small>
+  </div>
 
-          <input
-            type="number"
-            placeholder="Insurance Per Month"
-            value={insurance}
-            onChange={(e) =>
-              setInsurance(e.target.value)
-            }
-          />
+  <div className="input-group">
+    <label>Monthly Insurance (R)</label>
+    <input
+      type="number"
+      value={insurance}
+      onChange={(e) =>
+        setInsurance(e.target.value)
+      }
+    />
+    <small>
+      Average monthly vehicle insurance premium.
+    </small>
+  </div>
 
-          <input
-            type="number"
-            placeholder="Fuel & Maintenance Per Month"
-            value={fuelMaintenance}
-            onChange={(e) =>
-              setFuelMaintenance(e.target.value)
-            }
-          />
+  <div className="input-group">
+    <label>Fuel & Maintenance Per Month (R)</label>
+    <input
+      type="number"
+      value={fuelMaintenance}
+      onChange={(e) =>
+        setFuelMaintenance(e.target.value)
+      }
+    />
+    <small>
+      Estimated monthly fuel, servicing and maintenance costs.
+    </small>
+  </div>
 
-          <input
-            type="number"
-            placeholder="Years"
-            value={years}
-            onChange={(e) =>
-              setYears(e.target.value)
-            }
-          />
+  <div className="input-group">
+    <label>Investment Period (Years)</label>
+    <input
+      type="number"
+      value={years}
+      onChange={(e) =>
+        setYears(e.target.value)
+      }
+    />
+    <small>
+      How long you want to compare the two options.
+    </small>
+  </div>
 
-          <button onClick={runSimulation}>
-            Run Simulation
-          </button>
+  <button onClick={runSimulation}>
+    Run Simulation
+  </button>
 
-        </div>
+</div>
 
         <div className="studio-side">
           <h3>Invest Instead</h3>
