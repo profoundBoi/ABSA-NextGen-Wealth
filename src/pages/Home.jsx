@@ -6,148 +6,212 @@ import { calculatePAYE } from "../utils/calculations";
 function Home() {
   const { userData } = useContext(UserContext);
 
-  const totalExpenses =
-  userData.rent + userData.car + userData.expenses;
+  const income = Number(userData.income) || 0;
+  const rent = Number(userData.rent) || 0;
+  const car = Number(userData.car) || 0;
+  const expenses = Number(userData.expenses) || 0;
+  const currentSavings = Number(userData.currentSavings) || 0;
+  const savingsGoal = Number(userData.savingsGoal) || 0;
 
-  const tax = calculatePAYE(userData.income);
+  const totalExpenses = rent + car + expenses;
+  const tax = calculatePAYE(income);
+  const afterTaxIncome = income - tax;
+  const netIncome = afterTaxIncome - totalExpenses;
 
-  const afterTaxIncome =
-  userData.income - tax;
-
-  const netIncome =
-  afterTaxIncome - totalExpenses;
-
-  const savingsRate =
-  userData.income > 0
-    ? (userData.currentSavings / userData.income) * 100
-    : 0;
-
-  const savingsProgress =
-  userData.savingsGoal > 0
-    ? (userData.currentSavings / userData.savingsGoal) * 100
-    : 0;
-
+  const savingsRate = income > 0 ? (currentSavings / income) * 100 : 0;
+  const savingsProgress = savingsGoal > 0 ? (currentSavings / savingsGoal) * 100 : 0;
   const emergencyFundTarget = totalExpenses * 3;
-
   const emergencyProgress =
-  emergencyFundTarget > 0
-    ? (userData.currentSavings / emergencyFundTarget) * 100
-    : 0;
+    emergencyFundTarget > 0 ? (currentSavings / emergencyFundTarget) * 100 : 0;
+  const hasEmergencyFund = currentSavings > 0;
 
-  const hasEmergencyFund = userData.currentSavings > 0;
+  const notifications = [
+    netIncome < 0 && { type: "danger", icon: "↓", text: "Your expenses exceed your after-tax income" },
+    rent > income * 0.3 && income > 0 && { type: "warning", icon: "⌂", text: "Housing costs exceed 30% of gross income" },
+    !hasEmergencyFund && { type: "info", icon: "!", text: "No emergency fund detected — start building one" },
+  ].filter(Boolean);
 
   return (
     <div className="home">
 
-<div className="home-header">
-  <div className="page-description">
-    <h1>Welcome 👋</h1>
-
-    <p>
-      This is your financial control centre. Here you can track your income,
-      expenses, savings progress, and emergency fund in real time.
-    </p>
-
-    <p>
-      Use the <strong>Dashboard</strong> for your overview, explore
-      <strong> Moneysnapshot</strong> for detailed breakdowns,
-      build strategies in <strong>Strategy Tracks</strong>, and test decisions
-      in the <strong>Simulation Lab</strong>.
-    </p>
-  </div>
-</div>
-
-      <div className="top-section">
-
-        <div className="profile-card">
-          <div className="profile-circle"></div>
-        </div>
-
-        <div className="notifications">
-          <h3>Notifications</h3>
-
-          {netIncome < 0 && (
-            <div className="notification warning">
-              ⚠️ You are overspending
-            </div>
-          )}
-
-          {userData.rent > userData.income * 0.3 && (
-            <div className="notification warning">
-              ⚠️ Housing costs too high
-            </div>
-          )}
-          
-
-          {!hasEmergencyFund && (
-            <div className="notification warning">
-              ⚠️ Start building an emergency fund
-            </div>
-          )}
-        </div>
-
-        
-
+      <div className="mesh-bg">
+        <div className="mesh-orb mesh-orb-1" />
+        <div className="mesh-orb mesh-orb-2" />
+        <div className="mesh-orb mesh-orb-3" />
+        <div className="mesh-grid" />
       </div>
 
+      <div className="home-content">
 
-      <div className="stats-grid">
-
-        <div className="stat-card">
-          <h4>Monthly Income</h4>
-          <p>R{userData.income}</p>
-        </div>
-
-        <div className="stat-card">
-         <h4>Estimated PAYE</h4>
-         <p>R{Math.round(tax).toLocaleString()}</p>
-        </div>
-
-        <div className="stat-card">
-          <h4>Expenses</h4>
-          <p>R{totalExpenses}</p>
-        </div>
-
-        <div className="stat-card">
-          <h4>Saving Rate</h4>
-          <p>{Math.round(savingsRate)}%</p>
-        </div>
-
-        <div className="stat-card">
-          <h4>Net Income</h4>
-          <p>R{Math.round(netIncome).toLocaleString()}</p>
-        </div>
-
-        <div className="stat-card">
-          <h4>Emergency Fund</h4>
-          <p>Target: R{emergencyFundTarget}</p>
-
-          <div className="mini-bar">
-            <div style={{ width: `${emergencyProgress}%` }}></div>
+        <header className="home-header">
+          <div className="header-left">
+            <h1 className="header-title">Dashboard</h1>
+            <p className="header-sub">
+              Your income, tax, expenses and savings — all in one place.
+            </p>
           </div>
 
-          <small>{Math.round(emergencyProgress)}% funded</small>
-        </div>
+          <div className="header-right">
+            <div className="profile-badge">
+              <div className="profile-avatar">
+                <span>JD</span>
+              </div>
+              <div className="profile-info">
+                <p className="profile-name">Account Holder</p>
+                <p className="profile-status">
+                  <span className="status-dot" />
+                  Active
+                </p>
+              </div>
+            </div>
+          </div>
+        </header>
 
-        <div className="stat-card">
-        <h4>Savings Goal</h4>
-         <div className="mini-bar">
-          <div style={{ width: `${Math.min(savingsProgress, 100)}%` }}></div>
-         </div>
-          <small>{Math.round(savingsProgress)}%</small>
-        </div>
+        {notifications.length > 0 && (
+          <div className="notifications-strip">
+            {notifications.map((n, i) => (
+              <div key={i} className={`notif-pill notif-${n.type}`}>
+                <span className="notif-icon">{n.icon}</span>
+                {n.text}
+              </div>
+            ))}
+          </div>
+        )}
+
+        <section className="section">
+          <p className="section-label">Key Figures</p>
+
+          <div className="primary-grid">
+
+            <div className="metric-card metric-featured">
+              <div className="metric-tag">Monthly Income</div>
+              <div className="metric-value">R{income.toLocaleString()}</div>
+              <div className="metric-sub">Gross, before tax</div>
+              <div className="metric-bar-track">
+                <div className="metric-bar-fill" style={{ width: "100%" }} />
+              </div>
+            </div>
+
+            <div className="metric-card">
+              <div className="metric-tag">After-Tax Income</div>
+              <div className="metric-value">R{Math.round(afterTaxIncome).toLocaleString()}</div>
+              <div className="metric-sub">Take-home pay</div>
+            </div>
+
+            <div className="metric-card">
+              <div className="metric-tag">Estimated PAYE</div>
+              <div className="metric-value accent-red">R{Math.round(tax).toLocaleString()}</div>
+              <div className="metric-sub">Monthly tax deduction</div>
+            </div>
+
+            <div className={`metric-card ${netIncome < 0 ? "metric-danger" : "metric-positive"}`}>
+              <div className="metric-tag">Net Income</div>
+              <div className="metric-value">R{Math.round(netIncome).toLocaleString()}</div>
+              <div className="metric-sub">
+                {netIncome >= 0 ? "After all expenses" : "You are overspending"}
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <section className="section two-col">
+
+          <div className="panel">
+            <p className="section-label">Spending</p>
+
+            <div className="spend-breakdown">
+              <div className="spend-row">
+                <div className="spend-label">
+                  <span className="spend-dot dot-red" />
+                  Rent / Bond
+                </div>
+                <span className="spend-amount">R{rent.toLocaleString()}</span>
+              </div>
+
+              <div className="spend-row">
+                <div className="spend-label">
+                  <span className="spend-dot dot-amber" />
+                  Car Payment
+                </div>
+                <span className="spend-amount">R{car.toLocaleString()}</span>
+              </div>
+
+              <div className="spend-row">
+                <div className="spend-label">
+                  <span className="spend-dot dot-teal" />
+                  Living Expenses
+                </div>
+                <span className="spend-amount">R{expenses.toLocaleString()}</span>
+              </div>
+
+              <div className="spend-divider" />
+
+              <div className="spend-row spend-total">
+                <span>Total</span>
+                <span>R{totalExpenses.toLocaleString()}</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="panel">
+            <p className="section-label">Savings</p>
+
+            <div className="savings-stat">
+              <span className="savings-big">{Math.round(savingsRate)}%</span>
+              <span className="savings-label">Savings rate</span>
+            </div>
+
+            <div className="progress-group">
+              <div className="progress-header">
+                <span>Savings Goal</span>
+                <span>R{currentSavings.toLocaleString()} / R{savingsGoal.toLocaleString()}</span>
+              </div>
+              <div className="progress-track">
+                <div
+                  className="progress-fill"
+                  style={{ width: `${Math.min(savingsProgress, 100)}%` }}
+                />
+              </div>
+              <div className="progress-pct">{Math.round(savingsProgress)}% complete</div>
+            </div>
+          </div>
+
+        </section>
+
+        <section className="section">
+          <p className="section-label">Emergency Fund</p>
+
+          <div className="emergency-panel">
+            <div className="emergency-left">
+              <p className="emergency-title">3-Month Expense Buffer</p>
+              <p className="emergency-desc">
+                Financial advisors recommend holding 3–6 months of expenses in an accessible
+                emergency fund. This protects you from unexpected job loss, medical costs, or
+                large repairs.
+              </p>
+            </div>
+
+            <div className="emergency-right">
+              <div className="emergency-amounts">
+                <span className="e-current">R{currentSavings.toLocaleString()}</span>
+                <span className="e-sep">/</span>
+                <span className="e-target">R{Math.round(emergencyFundTarget).toLocaleString()}</span>
+              </div>
+
+              <div className="emergency-track">
+                <div
+                  className="emergency-fill"
+                  style={{ width: `${Math.min(emergencyProgress, 100)}%` }}
+                />
+              </div>
+
+              <p className="emergency-pct">{Math.round(emergencyProgress)}% funded</p>
+            </div>
+          </div>
+        </section>
 
       </div>
-
-
-      <div className="info-tile">
-        <h3>What is an Emergency Fund?</h3>
-        <p>
-          An emergency fund covers 3–6 months of expenses. It protects you
-          from unexpected financial shocks like job loss or emergencies.
-        </p>
-      </div>
-
     </div>
   );
 }
