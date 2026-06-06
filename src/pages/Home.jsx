@@ -28,7 +28,7 @@ function Home() {
   const notifications = [
     netIncome < 0 && { type: "danger", icon: "↓", text: "Your expenses exceed your after-tax income" },
     rent > income * 0.3 && income > 0 && { type: "warning", icon: "⌂", text: "Housing costs exceed 30% of gross income" },
-    !hasEmergencyFund && { type: "info", icon: "!", text: "No emergency fund detected — start building one" },
+    !hasEmergencyFund && { type: "info", icon: "!", text: "No emergency fund detected, start building one" },
   ].filter(Boolean);
 
   return (
@@ -47,7 +47,7 @@ function Home() {
           <div className="header-left">
             <h1 className="header-title">Dashboard</h1>
             <p className="header-sub">
-              Your income, tax, expenses and savings — all in one place.
+              Your income, tax, expenses and savings all in one place.
             </p>
           </div>
 
@@ -93,7 +93,7 @@ function Home() {
             </div>
 
             <div className="metric-card">
-              <div className="metric-tag">After-Tax Income</div>
+              <div className="metric-tag">After Tax Income</div>
               <div className="metric-value">R{Math.round(afterTaxIncome).toLocaleString()}</div>
               <div className="metric-sub">Take-home pay</div>
             </div>
@@ -186,7 +186,7 @@ function Home() {
             <div className="emergency-left">
               <p className="emergency-title">3-Month Expense Buffer</p>
               <p className="emergency-desc">
-                Financial advisors recommend holding 3–6 months of expenses in an accessible
+                Financial advisors recommend holding 3-6 months of expenses in an accessible
                 emergency fund. This protects you from unexpected job loss, medical costs, or
                 large repairs.
               </p>

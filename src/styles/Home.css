@@ -51,7 +51,7 @@
   height: 700px;
   top: -200px;
   right: -150px;
-  background: radial-gradient(circle, #0a2a36 0%, transparent 70%);
+  background: radial-gradient(circle, #bacfd6 0%, transparent 70%);
   animation: drift1 20s ease-in-out infinite alternate;
 }
 
@@ -60,7 +60,7 @@
   height: 500px;
   bottom: 5%;
   left: -120px;
-  background: radial-gradient(circle, #180810 0%, transparent 70%);
+  background: radial-gradient(circle, #c5b9bf 0%, transparent 70%);
   animation: drift2 25s ease-in-out infinite alternate;
 }
 
