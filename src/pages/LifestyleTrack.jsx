@@ -5,68 +5,71 @@ import "../styles/Tracks.css";
 function LifestyleTrack() {
   const { userData } = useContext(UserContext);
 
-  const totalExpenses =
-    userData.rent +
-    userData.car +
-    userData.expenses;
+  const income        = Number(userData.income) || 0;
+  const rent          = Number(userData.rent) || 0;
+  const car           = Number(userData.car) || 0;
+  const expenses      = Number(userData.expenses) || 0;
+  const currentSavings = Number(userData.currentSavings) || 0;
 
-  const savingsRate =
-    (userData.currentSavings /
-      userData.income) *
-    100;
-
-  const emergencyFund =
-    totalExpenses * 3;
+  const totalExpenses = rent + car + expenses;
+  const savingsRate   = income > 0 ? (currentSavings / income) * 100 : 0;
+  const emergencyFund = totalExpenses * 3;
 
   return (
-    <div className="track-detail-page">
+    <div className="tracks-page">
 
-      <h1 className="page-title">
-        🌿 Balanced Lifestyle & Investing
-      </h1>
-
-      <div className="track-overview">
-        <p>
-          This path focuses on creating a healthy balance
-          between enjoying your lifestyle today and
-          building wealth for the future.
-        </p>
+      <div className="mesh-bg">
+        <div className="mesh-orb mesh-orb-1" />
+        <div className="mesh-orb mesh-orb-2" />
+        <div className="mesh-orb mesh-orb-3" />
+        <div className="mesh-grid" />
       </div>
 
-      <div className="track-grid">
+      <div className="tracks-content">
 
-        <div className="info-tile">
-          <h3>Monthly Income</h3>
-          <p>R{userData.income.toLocaleString()}</p>
+        <div className="tracks-header">
+          <p className="track-eyebrow">Strategy Track</p>
+          <h1 className="page-title">🌿 Balanced Lifestyle & Investing</h1>
+          <p className="page-description">
+            This path focuses on creating a healthy balance between enjoying your lifestyle
+            today and building wealth for the future.
+          </p>
         </div>
 
-        <div className="info-tile">
-          <h3>Total Expenses</h3>
-          <p>R{totalExpenses.toLocaleString()}</p>
+        <div className="track-grid">
+
+          <div className="track-metric-card">
+            <div className="track-metric-tag">Monthly Income</div>
+            <div className="track-metric-value">R{income.toLocaleString()}</div>
+          </div>
+
+          <div className="track-metric-card">
+            <div className="track-metric-tag">Total Expenses</div>
+            <div className="track-metric-value">R{totalExpenses.toLocaleString()}</div>
+          </div>
+
+          <div className="track-metric-card">
+            <div className="track-metric-tag">Savings Rate</div>
+            <div className="track-metric-value">{savingsRate.toFixed(1)}%</div>
+          </div>
+
+          <div className="track-metric-card">
+            <div className="track-metric-tag">Emergency Fund Goal</div>
+            <div className="track-metric-value">R{emergencyFund.toLocaleString()}</div>
+          </div>
+
         </div>
 
-        <div className="info-tile">
-          <h3>Savings Rate</h3>
-          <p>{savingsRate.toFixed(1)}%</p>
-        </div>
-
-        <div className="info-tile">
-          <h3>Emergency Fund Goal</h3>
-          <p>R{emergencyFund.toLocaleString()}</p>
+        <div className="recommendation-panel">
+          <p className="rec-label">Recommended Next Step</p>
+          <p className="rec-text">
+            {savingsRate < 10
+              ? "Increase your savings rate above 10% before focusing on investments."
+              : "You are building a strong financial foundation. Consider increasing your investment contributions."}
+          </p>
         </div>
 
       </div>
-
-      <div className="recommendation">
-        <h3>Recommended Next Step</h3>
-
-        <p>
-          {savingsRate < 10
-            ? "Increase your savings rate above 10%."
-            : "You are building a strong financial foundation."}
-        </p>
-      </div>
-
     </div>
   );
 }
