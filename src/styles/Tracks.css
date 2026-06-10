@@ -10,6 +10,51 @@
   overflow: hidden;
 }
 
+/* ─── MESH BACKGROUND ─────────────────────────────────────────────────────── */
+.mesh-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.mesh-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(110px);
+  opacity: 0.45;
+}
+
+.mesh-orb-1 {
+  width: 700px; height: 700px;
+  top: -200px; right: -150px;
+  background: radial-gradient(circle, #0a2a36 0%, transparent 70%);
+  animation: drift1 20s ease-in-out infinite alternate;
+}
+
+.mesh-orb-2 {
+  width: 500px; height: 500px;
+  bottom: 5%; left: -120px;
+  background: radial-gradient(circle, #180810 0%, transparent 70%);
+  animation: drift2 25s ease-in-out infinite alternate;
+}
+
+.mesh-orb-3 {
+  width: 380px; height: 380px;
+  top: 50%; left: 38%;
+  background: radial-gradient(circle, #071820 0%, transparent 70%);
+  animation: drift3 17s ease-in-out infinite alternate;
+}
+
+.mesh-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+  background-size: 52px 52px;
+}
+
 @keyframes drift1 { from { transform: translate(0,0) scale(1); } to { transform: translate(-50px,70px) scale(1.08); } }
 @keyframes drift2 { from { transform: translate(0,0) scale(1); } to { transform: translate(70px,-50px) scale(1.06); } }
 @keyframes drift3 { from { transform: translate(0,0); } to { transform: translate(-35px,45px); } }
@@ -147,7 +192,7 @@
 }
 
 .track-metric-accent {
-  border-top: 2px solid #c0002f;
+  border-top: none;
 }
 
 .track-metric-tag {
@@ -321,4 +366,252 @@
 @media (max-width: 480px) {
   .track-grid { grid-template-columns: 1fr; }
   .allocation-row { flex-direction: column; gap: 16px; }
+}
+
+/* ─── TWO PANEL ROW ───────────────────────────────────────────────────────── */
+.two-panel-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+/* ─── TRACK PANEL ─────────────────────────────────────────────────────────── */
+.track-panel {
+  background: #0c1a21;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 24px;
+  padding: 32px;
+}
+
+.panel-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #4d6b66;
+  margin-bottom: 6px;
+}
+
+.panel-sub {
+  font-size: 12px;
+  color: #4d6b66;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.chart-empty {
+  font-size: 13px;
+  color: #4d6b66;
+  text-align: center;
+  padding: 40px 20px;
+  line-height: 1.6;
+}
+
+/* ─── BUDGET HEALTH CHECK ─────────────────────────────────────────────────── */
+.budget-rules {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.budget-rule-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.budget-rule-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.budget-rule-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #8fa8a3;
+}
+
+.budget-rule-pcts {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+}
+
+.budget-rule-cap {
+  color: #4d6b66;
+  font-weight: 400;
+}
+
+.budget-rule-track {
+  height: 5px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.budget-rule-fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.5s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* ─── MILESTONES ──────────────────────────────────────────────────────────── */
+.milestone-progress-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.milestone-pct {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: #4d6b66;
+  white-space: nowrap;
+}
+
+.milestone-bar-track {
+  flex: 1;
+  height: 5px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.milestone-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #2aa89a, #4fd1c5);
+  border-radius: 999px;
+  transition: width 0.5s cubic-bezier(0.4,0,0.2,1);
+}
+
+.milestone {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #060d12;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  color: #8fa8a3;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.milestone:hover {
+  border-color: rgba(255,255,255,0.11);
+  color: #f0f4f3;
+}
+
+.milestone.done {
+  border-color: rgba(42,168,154,0.3);
+  color: #2aa89a;
+  background: rgba(42,168,154,0.05);
+}
+
+.milestone-check {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: #2aa89a;
+  flex-shrink: 0;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.milestone.done .milestone-check {
+  background: rgba(42,168,154,0.15);
+  border-color: #2aa89a;
+}
+
+/* ─── EDUCATION TILES ─────────────────────────────────────────────────────── */
+.edu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.edu-tile {
+  background: #0c1a21;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 20px;
+  padding: 28px;
+}
+
+.edu-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #f0f4f3;
+  margin-bottom: 10px;
+}
+
+.edu-body {
+  font-size: 13px;
+  color: #8fa8a3;
+  line-height: 1.7;
+}
+
+/* ─── BOND AFFORDABILITY ──────────────────────────────────────────────────── */
+.afford-row {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.afford-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.afford-label {
+  font-size: 12px;
+  color: #8fa8a3;
+}
+
+.afford-value {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #f0f4f3;
+}
+
+.afford-bar-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.afford-bar-header {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #4d6b66;
+}
+
+/* ─── RESPONSIVE ──────────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .two-panel-row { grid-template-columns: 1fr; }
+  .edu-grid { grid-template-columns: 1fr; }
 }

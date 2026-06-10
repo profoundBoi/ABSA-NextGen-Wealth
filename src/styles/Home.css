@@ -258,11 +258,10 @@
 
 .metric-featured {
   border-color: rgba(192,0,47,0.2);
-  border-top: 2px solid var(--red);
 }
 
-.metric-positive { border-top: 2px solid var(--teal); }
-.metric-danger   { border-top: 2px solid var(--red); }
+.metric-positive { border-top: none; }
+.metric-danger   { border-top: none; }
 
 .metric-tag {
   font-family: var(--font-heading);

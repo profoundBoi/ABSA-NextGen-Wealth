@@ -42,8 +42,15 @@ function TrackDetails() {
 
   return (
     <div className="track-detail-page">
+      <div className="mesh-bg">
+        <div className="mesh-orb mesh-orb-1" />
+        <div className="mesh-orb mesh-orb-2" />
+        <div className="mesh-orb mesh-orb-3" />
+        <div className="mesh-grid" />
+      </div>
 
-      <h1 className="page-title">Balanced Lifestyle & Investing</h1>
+      <div className="simulation-content">
+        <h1 className="page-title">Balanced Lifestyle & Investing</h1>
 
 
       <div className="track-overview">
@@ -94,7 +101,7 @@ function TrackDetails() {
           In South Africa, balancing spending and investing early helps build long-term stability.
         </p>
       </div>
-
+      </div>
     </div>
   );
 }

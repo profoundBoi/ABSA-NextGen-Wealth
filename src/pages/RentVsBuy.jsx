@@ -25,9 +25,17 @@ function RentVsBuy() {
 
   return (
     <div className="simulation-page">
-      <h1 className="page-title">
-        Rent vs Buy Simulation
-      </h1>
+      <div className="mesh-bg">
+        <div className="mesh-orb mesh-orb-1" />
+        <div className="mesh-orb mesh-orb-2" />
+        <div className="mesh-orb mesh-orb-3" />
+        <div className="mesh-grid" />
+      </div>
+
+      <div className="simulation-content">
+        <h1 className="page-title">
+          Rent vs Buy Simulation
+        </h1>
 
       <div className="simulation-intro">
         <h2>Property Decision Planner</h2>
@@ -178,6 +186,7 @@ function RentVsBuy() {
           {result.recommendation}
         </div>
       )}
+      </div>
     </div>
   );
 }
