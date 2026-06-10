@@ -6,18 +6,13 @@
   --surface-2: #0f2230;
   --border: rgba(255,255,255,0.06);
   --border-mid: rgba(255,255,255,0.11);
-
   --red: #c0002f;
   --red-light: #e8193d;
-
   --teal: #2aa89a;
-
   --text-1: #f0f4f3;
   --text-2: #8fa8a3;
   --text-3: #4d6b66;
-
   --radius-lg: 24px;
-
   --font-heading: "Montserrat", sans-serif;
   --font-body: "DM Sans", sans-serif;
 }
@@ -124,9 +119,8 @@
 
 .intro-highlight {
   margin-top: 20px;
-  background: rgba(192,0,47,0.08);
-  border: 1px solid rgba(192,0,47,0.2);
-  color: #ff8fa3;
+  background: rgba(192, 0, 48, 0.456);
+  color: #c0c0c0;
   padding: 16px;
   border-radius: 14px;
   font-size: 14px;

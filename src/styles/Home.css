@@ -206,15 +206,13 @@
 .notif-icon { font-style: normal; }
 
 .notif-danger {
-  background: rgba(192,0,47,0.1);
-  border: 1px solid rgba(192,0,47,0.25);
-  color: #ff8fa3;
+  background: rgba(192,0,47,0.25);
+  color: #dfdfdf;
 }
 
 .notif-warning {
-  background: rgba(212,134,42,0.08);
-  border: 1px solid rgba(212,134,42,0.22);
-  color: #f5c07a;
+  background: rgba(212, 133, 42, 0.484);
+  color: #cccccc;
 }
 
 .notif-info {

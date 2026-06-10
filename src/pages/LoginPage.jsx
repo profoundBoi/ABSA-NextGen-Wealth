@@ -32,14 +32,13 @@ function LoginPage() {
         setError("PINs do not match.");
         return;
       }
-      // Save profile to localStorage
+
       localStorage.setItem("profile", JSON.stringify({ name: name.trim(), pin }));
       login(name.trim(), pin);
       navigate("/");
       return;
     }
 
-    // Login — check against saved profile
     const saved = localStorage.getItem("profile");
     if (!saved) {
       setError("No account found. Please register first.");
@@ -58,7 +57,6 @@ function LoginPage() {
   return (
     <div className="login-page">
 
-      {/* MESH BACKGROUND */}
       <div className="mesh-bg">
         <div className="mesh-orb mesh-orb-1" />
         <div className="mesh-orb mesh-orb-2" />
@@ -68,7 +66,6 @@ function LoginPage() {
 
       <div className="login-container">
 
-        {/* LOGO / BRAND */}
         <div className="login-brand">
           <div className="login-logo-ring">
             <span>A</span>
@@ -76,7 +73,6 @@ function LoginPage() {
           <p className="login-brand-name">Absa Financial Planner</p>
         </div>
 
-        {/* CARD */}
         <div className="login-card">
 
           <h1 className="login-title">

@@ -280,7 +280,6 @@
   line-height: 1.7;
 }
 
-/* ─── ALLOCATION PANEL ────────────────────────────────────────────────────── */
 .allocation-panel {
   background: #0c1a21;
   border: 1px solid rgba(255,255,255,0.06);
@@ -365,7 +364,6 @@
   .allocation-row { flex-direction: column; gap: 16px; }
 }
 
-/* ─── TWO PANEL ROW ───────────────────────────────────────────────────────── */
 .two-panel-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -373,7 +371,6 @@
   margin-bottom: 16px;
 }
 
-/* ─── TRACK PANEL ─────────────────────────────────────────────────────────── */
 .track-panel {
   background: #0c1a21;
   border: 1px solid rgba(255,255,255,0.06);
@@ -406,7 +403,6 @@
   line-height: 1.6;
 }
 
-/* ─── BUDGET HEALTH CHECK ─────────────────────────────────────────────────── */
 .budget-rules {
   display: flex;
   flex-direction: column;
@@ -455,7 +451,6 @@
   transition: width 0.5s cubic-bezier(0.4,0,0.2,1);
 }
 
-/* ─── MILESTONES ──────────────────────────────────────────────────────────── */
 .milestone-progress-row {
   display: flex;
   align-items: center;
@@ -533,7 +528,6 @@
   border-color: #2aa89a;
 }
 
-/* ─── EDUCATION TILES ─────────────────────────────────────────────────────── */
 .edu-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -562,7 +556,6 @@
   line-height: 1.7;
 }
 
-/* ─── BOND AFFORDABILITY ──────────────────────────────────────────────────── */
 .afford-row {
   display: flex;
   flex-direction: column;
@@ -607,7 +600,6 @@
   color: #4d6b66;
 }
 
-/* ─── RESPONSIVE ──────────────────────────────────────────────────────────── */
 @media (max-width: 900px) {
   .two-panel-row { grid-template-columns: 1fr; }
   .edu-grid { grid-template-columns: 1fr; }
