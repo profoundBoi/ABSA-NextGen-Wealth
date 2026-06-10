@@ -23,7 +23,6 @@ function Navbar() {
     setMenuOpen(false);
   }
 
-  // Get first name only for display
   const firstName = session?.name?.split(" ")[0] || "Account";
 
   return (

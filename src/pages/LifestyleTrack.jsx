@@ -69,7 +69,6 @@ function LifestyleTrack() {
 
       <div className="tracks-content">
 
-        {/* HEADER */}
         <div className="tracks-header">
           <p className="track-eyebrow">Strategy Track</p>
           <h1 className="page-title">🌿 Balanced Lifestyle & Investing</h1>
@@ -80,7 +79,6 @@ function LifestyleTrack() {
           </p>
         </div>
 
-        {/* KEY METRICS */}
         <div className="track-grid" style={{ marginBottom: 16 }}>
           <div className="track-metric-card">
             <div className="track-metric-tag">Monthly Income</div>
@@ -102,10 +100,8 @@ function LifestyleTrack() {
           </div>
         </div>
 
-        {/* CHARTS ROW */}
         <div className="two-panel-row">
 
-          {/* SPENDING BREAKDOWN CHART */}
           <div className="track-panel">
             <p className="panel-label">Monthly Spending Breakdown</p>
             {spendData.length > 0 ? (
@@ -127,7 +123,6 @@ function LifestyleTrack() {
             )}
           </div>
 
-          {/* 50/30/20 BUDGET CHECK */}
           <div className="track-panel">
             <p className="panel-label">Budget Health Check</p>
             <p className="panel-sub">How your spending compares to recommended limits</p>
@@ -154,7 +149,7 @@ function LifestyleTrack() {
 
         </div>
 
-        {/* EMERGENCY FUND PROGRESS */}
+
         <div className="track-progress-panel" style={{ marginBottom: 16 }}>
           <div className="track-progress-header">
             <span>Emergency Fund (3-Month Target)</span>
@@ -166,7 +161,6 @@ function LifestyleTrack() {
           <p className="track-progress-sub">{emergencyPct.toFixed(0)}% funded — target is 3× your monthly expenses</p>
         </div>
 
-        {/* MILESTONES */}
         <div className="track-panel" style={{ marginBottom: 16 }}>
           <p className="panel-label">Track Milestones</p>
           <div className="milestone-progress-row">
@@ -185,7 +179,6 @@ function LifestyleTrack() {
           </div>
         </div>
 
-        {/* EDUCATION TILES */}
         <div className="edu-grid">
           <div className="edu-tile">
             <p className="edu-title">What is a TFSA?</p>
@@ -201,7 +194,6 @@ function LifestyleTrack() {
           </div>
         </div>
 
-        {/* RECOMMENDATION */}
         <div className="recommendation-panel">
           <p className="rec-label">Recommended Next Step</p>
           <p className="rec-text">

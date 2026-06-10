@@ -16,18 +16,15 @@ function PropertyTrack() {
   const readiness      = depositGoal > 0 ? Math.min((currentSavings / depositGoal) * 100, 100) : 0;
   const remaining      = Math.max(depositGoal - currentSavings, 0);
 
-  // How many months to reach deposit if saving 20% of income
   const monthlySaving  = income * 0.20;
   const monthsToGoal   = monthlySaving > 0 && remaining > 0 ? Math.ceil(remaining / monthlySaving) : 0;
   const yearsToGoal    = Math.floor(monthsToGoal / 12);
   const leftoverMonths = monthsToGoal % 12;
 
-  // Bond repayment estimate on 90% of property value at 11.5% over 20 years
   const loanAmount     = estimatedPropertyValue * 0.90;
   const monthlyBond    = income > 0 ? calculateBondRepayment(loanAmount, 11.5, 20) : 0;
   const affordability  = income > 0 ? (monthlyBond / income) * 100 : 0;
 
-  // Savings growth chart — project current savings + 20% monthly over 5 years
   const savingsChartData = Array.from({ length: 61 }, (_, i) => {
     const value = currentSavings + monthlySaving * i;
     return {
@@ -66,7 +63,6 @@ function PropertyTrack() {
 
       <div className="tracks-content">
 
-        {/* HEADER */}
         <div className="tracks-header">
           <p className="track-eyebrow">Strategy Track</p>
           <h1 className="page-title">🏠 First Property Path</h1>
@@ -77,7 +73,6 @@ function PropertyTrack() {
           </p>
         </div>
 
-        {/* KEY METRICS */}
         <div className="track-grid" style={{ marginBottom: 16 }}>
           <div className="track-metric-card">
             <div className="track-metric-tag">Estimated Property Value</div>
@@ -99,7 +94,6 @@ function PropertyTrack() {
           </div>
         </div>
 
-        {/* DEPOSIT PROGRESS */}
         <div className="track-progress-panel" style={{ marginBottom: 16 }}>
           <div className="track-progress-header">
             <span>Deposit Progress</span>
@@ -115,10 +109,8 @@ function PropertyTrack() {
           </p>
         </div>
 
-        {/* CHARTS ROW */}
         <div className="two-panel-row">
 
-          {/* SAVINGS GROWTH CHART */}
           <div className="track-panel">
             <p className="panel-label">Savings Growth Projection</p>
             <p className="panel-sub">Based on saving 20% of your income monthly</p>
@@ -147,7 +139,6 @@ function PropertyTrack() {
             </ResponsiveContainer>
           </div>
 
-          {/* BOND AFFORDABILITY */}
           <div className="track-panel">
             <p className="panel-label">Bond Affordability Estimate</p>
             <p className="panel-sub">Based on 90% bond at 11.5% over 20 years</p>
@@ -187,7 +178,6 @@ function PropertyTrack() {
 
         </div>
 
-        {/* MILESTONES */}
         <div className="track-panel" style={{ marginBottom: 16 }}>
           <p className="panel-label">Property Readiness Checklist</p>
           <div className="milestone-progress-row">
@@ -206,7 +196,6 @@ function PropertyTrack() {
           </div>
         </div>
 
-        {/* EDUCATION TILES */}
         <div className="edu-grid">
           <div className="edu-tile">
             <p className="edu-title">Bond Originators</p>
@@ -222,7 +211,6 @@ function PropertyTrack() {
           </div>
         </div>
 
-        {/* RECOMMENDATION */}
         <div className="recommendation-panel">
           <p className="rec-label">Recommended Next Step</p>
           <p className="rec-text">

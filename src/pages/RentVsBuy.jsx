@@ -3,11 +3,11 @@ import "../styles/Simulation.css";
 import { rentVsBuySimulation } from "../utils/simulationCalculations";
 
 function RentVsBuy() {
-  const [salary, setSalary] = useState(35000);
-  const [housePrice, setHousePrice] = useState(1500000);
-  const [deposit, setDeposit] = useState(150000);
-  const [interest, setInterest] = useState(11);
-  const [rent, setRent] = useState(12000);
+  const [salary, setSalary] = useState("");
+  const [housePrice, setHousePrice] = useState("");
+  const [deposit, setDeposit] = useState("");
+  const [interest, setInterest] = useState("");
+  const [rent, setRent] = useState("");
 
   const [result, setResult] = useState(null);
 
@@ -99,6 +99,7 @@ function RentVsBuy() {
     <input
       type="number"
       value={salary}
+      placeholder="e.g. 35000"
       onChange={(e) =>
         setSalary(e.target.value)
       }
@@ -111,6 +112,7 @@ function RentVsBuy() {
     <input
       type="number"
       value={housePrice}
+      placeholder="e.g. 1500000"
       onChange={(e) =>
         setHousePrice(e.target.value)
       }
@@ -123,6 +125,7 @@ function RentVsBuy() {
     <input
       type="number"
       value={deposit}
+      placeholder="e.g. 150000"
       onChange={(e) =>
         setDeposit(e.target.value)
       }
@@ -135,6 +138,7 @@ function RentVsBuy() {
     <input
       type="number"
       value={interest}
+      placeholder="e.g. 11"
       onChange={(e) =>
         setInterest(e.target.value)
       }
@@ -147,6 +151,7 @@ function RentVsBuy() {
     <input
       type="number"
       value={rent}
+      placeholder="e.g. 12000"
       onChange={(e) =>
         setRent(e.target.value)
       }
@@ -180,7 +185,6 @@ function RentVsBuy() {
         </div>
       </div>
 
-      {/* RECOMMENDATION */}
       {result && (
         <div className="pill">
           {result.recommendation}

@@ -3,10 +3,10 @@ import "../styles/Simulation.css";
 import { localVsOffshoreSimulation } from "../utils/simulationCalculations";
 
 function LocalVsOffshore() {
-  const [investment, setInvestment] = useState(100000);
-  const [monthlyContribution, setMonthlyContribution] = useState(2000);
-  const [years, setYears] = useState(10);
-  const [randDepreciation, setRandDepreciation] = useState(4);
+  const [investment, setInvestment] = useState("");
+  const [monthlyContribution, setMonthlyContribution] = useState("");
+  const [years, setYears] = useState("");
+  const [randDepreciation, setRandDepreciation] = useState("");
 
   const [result, setResult] = useState(null);
 
@@ -54,7 +54,6 @@ function LocalVsOffshore() {
 
       <div className="studio-container">
 
-        {/* LOCAL */}
         <div className="studio-side">
           <h3>Local Investment</h3>
 
@@ -69,7 +68,6 @@ function LocalVsOffshore() {
           )}
         </div>
 
-        {/* INPUTS */}
         <div className="studio-center">
 
   <h3>Inputs</h3>
@@ -79,6 +77,7 @@ function LocalVsOffshore() {
     <input
       type="number"
       value={investment}
+      placeholder="e.g. 100000"
       onChange={(e) =>
         setInvestment(e.target.value)
       }
@@ -93,6 +92,7 @@ function LocalVsOffshore() {
     <input
       type="number"
       value={monthlyContribution}
+      placeholder="e.g. 2000"
       onChange={(e) =>
         setMonthlyContribution(e.target.value)
       }
@@ -107,6 +107,7 @@ function LocalVsOffshore() {
     <input
       type="number"
       value={years}
+      placeholder="e.g. 10"
       onChange={(e) =>
         setYears(e.target.value)
       }
@@ -121,6 +122,7 @@ function LocalVsOffshore() {
     <input
       type="number"
       value={randDepreciation}
+      placeholder="e.g. 4"
       onChange={(e) =>
         setRandDepreciation(e.target.value)
       }
@@ -136,7 +138,6 @@ function LocalVsOffshore() {
 
 </div>
 
-        {/* OFFSHORE */}
         <div className="studio-side">
           <h3>Offshore Investment</h3>
 

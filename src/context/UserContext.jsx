@@ -4,7 +4,6 @@ export const UserContext = createContext();
 
 export function UserProvider({ children }) {
 
-  // Financial data
   const [userData, setUserData] = useState(() => {
     const saved = localStorage.getItem("userData");
     return saved
@@ -19,7 +18,6 @@ export function UserProvider({ children }) {
         };
   });
 
-  // Session / user name
   const [session, setSession] = useState(() => {
     const saved = localStorage.getItem("session");
     return saved ? JSON.parse(saved) : null;

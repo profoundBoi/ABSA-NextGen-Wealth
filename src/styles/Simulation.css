@@ -22,10 +22,6 @@
   --font-body: "DM Sans", sans-serif;
 }
 
-/* =========================================
-   PAGE
-========================================= */
-
 .simulation-page {
   min-height: 100vh;
   background: var(--bg);
@@ -88,10 +84,6 @@
 @keyframes drift1 { from { transform: translate(0,0) scale(1); } to { transform: translate(-50px, 70px) scale(1.08); } }
 @keyframes drift2 { from { transform: translate(0,0) scale(1); } to { transform: translate(70px, -50px) scale(1.06); } }
 @keyframes drift3 { from { transform: translate(0,0); } to { transform: translate(-35px, 45px); } }
-
-/* =========================================
-   HEADINGS
-========================================= */
 
 .simulation-content {
   position: relative;

@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap');
 
-/* ─── BASE ────────────────────────────────────────────────────────────────── */
+
 .tracks-page {
   min-height: 100vh;
   background: #060d12;
@@ -10,7 +10,7 @@
   overflow: hidden;
 }
 
-/* ─── MESH BACKGROUND ─────────────────────────────────────────────────────── */
+
 .mesh-bg {
   position: fixed;
   inset: 0;
@@ -59,7 +59,7 @@
 @keyframes drift2 { from { transform: translate(0,0) scale(1); } to { transform: translate(70px,-50px) scale(1.06); } }
 @keyframes drift3 { from { transform: translate(0,0); } to { transform: translate(-35px,45px); } }
 
-/* ─── CONTENT WRAPPER ────────────────────────────────────────────────────── */
+
 .tracks-content {
   position: relative;
   z-index: 1;
@@ -68,7 +68,7 @@
   padding: 48px 48px 80px;
 }
 
-/* ─── HEADER ─────────────────────────────────────────────────────────────── */
+
 .tracks-header {
   margin-bottom: 40px;
 }
@@ -107,7 +107,7 @@
   box-shadow: none;
 }
 
-/* ─── TRACK CARDS (index page) ────────────────────────────────────────────── */
+
 .track-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -170,7 +170,7 @@
   border-color: #c0002f;
 }
 
-/* ─── TRACK METRIC GRID ───────────────────────────────────────────────────── */
+
 .track-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -213,7 +213,7 @@
   letter-spacing: -0.5px;
 }
 
-/* ─── PROGRESS PANEL ──────────────────────────────────────────────────────── */
+
 .track-progress-panel {
   background: #0c1a21;
   border: 1px solid rgba(255,255,255,0.06);
@@ -326,7 +326,7 @@
   color: #f0f4f3;
 }
 
-/* ─── MILESTONES (TrackDetails) ───────────────────────────────────────────── */
+
 .milestones {
   margin-bottom: 16px;
 }

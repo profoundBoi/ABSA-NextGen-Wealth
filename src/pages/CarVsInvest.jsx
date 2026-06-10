@@ -3,10 +3,10 @@ import "../styles/Simulation.css";
 import { carVsInvestSimulation } from "../utils/simulationCalculations";
 
 function CarVsInvest() {
-  const [carPrice, setCarPrice] = useState(500000);
-  const [insurance, setInsurance] = useState(1500);
-  const [fuelMaintenance, setFuelMaintenance] = useState(3000);
-  const [years, setYears] = useState(5);
+  const [carPrice, setCarPrice] = useState("");
+  const [insurance, setInsurance] = useState("");
+  const [fuelMaintenance, setFuelMaintenance] = useState("");
+  const [years, setYears] = useState("");
 
   const [result, setResult] = useState(null);
 
@@ -88,6 +88,7 @@ function CarVsInvest() {
     <input
       type="number"
       value={carPrice}
+      placeholder="e.g. 500000"
       onChange={(e) =>
         setCarPrice(e.target.value)
       }
@@ -102,6 +103,7 @@ function CarVsInvest() {
     <input
       type="number"
       value={insurance}
+      placeholder="e.g. 1500"
       onChange={(e) =>
         setInsurance(e.target.value)
       }
@@ -116,6 +118,7 @@ function CarVsInvest() {
     <input
       type="number"
       value={fuelMaintenance}
+      placeholder="e.g. 3000"
       onChange={(e) =>
         setFuelMaintenance(e.target.value)
       }
@@ -130,6 +133,7 @@ function CarVsInvest() {
     <input
       type="number"
       value={years}
+      placeholder="e.g. 5"
       onChange={(e) =>
         setYears(e.target.value)
       }

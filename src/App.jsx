@@ -23,10 +23,8 @@ function App() {
   return (
     <Routes>
 
-      {/* PUBLIC */}
       <Route path="/login" element={<LoginPage />} />
 
-      {/* PROTECTED — everything inside here requires login */}
       <Route
         path="/*"
         element={

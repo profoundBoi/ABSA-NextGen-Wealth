@@ -13,13 +13,11 @@ function InvestorTrack() {
   const offshore = Math.round(monthlyInvesting * 0.7);
   const local    = Math.round(monthlyInvesting * 0.3);
 
-  // Monthly annuity projection at 10% p.a.
   const monthlyRate = 0.10 / 12;
   const projectedValue = monthlyInvesting > 0
     ? monthlyInvesting * ((Math.pow(1 + monthlyRate, 120) - 1) / monthlyRate)
     : 0;
 
-  // Growth chart — year by year over 10 years
   const growthData = Array.from({ length: 11 }, (_, yr) => {
     const months = yr * 12;
     const value = currentSavings * Math.pow(1 + monthlyRate, months) +
@@ -30,7 +28,6 @@ function InvestorTrack() {
     return { year: `Yr ${yr}`, local: Math.round(value), offshore: Math.round(offshoreValue) };
   });
 
-  // ETF allocation bar data
   const allocationData = [
     { name: "Global ETF", pct: 40, color: "#2aa89a" },
     { name: "SA ETF", pct: 30, color: "#4f7df3" },
@@ -67,7 +64,6 @@ function InvestorTrack() {
 
       <div className="tracks-content">
 
-        {/* HEADER */}
         <div className="tracks-header">
           <p className="track-eyebrow">Strategy Track</p>
           <h1 className="page-title">📈 Aggressive Global Investor</h1>
@@ -78,7 +74,6 @@ function InvestorTrack() {
           </p>
         </div>
 
-        {/* KEY METRICS */}
         <div className="track-grid" style={{ marginBottom: 16 }}>
           <div className="track-metric-card">
             <div className="track-metric-tag">Current Savings</div>
@@ -100,10 +95,8 @@ function InvestorTrack() {
           </div>
         </div>
 
-        {/* CHARTS ROW */}
         <div className="two-panel-row">
 
-          {/* GROWTH PROJECTION CHART */}
           <div className="track-panel">
             <p className="panel-label">10-Year Growth Projection</p>
             <p className="panel-sub">Local (10% p.a.) vs Offshore (14% p.a. incl. rand depreciation)</p>
@@ -131,7 +124,6 @@ function InvestorTrack() {
             </ResponsiveContainer>
           </div>
 
-          {/* SUGGESTED ALLOCATION */}
           <div className="track-panel">
             <p className="panel-label">Suggested ETF Allocation</p>
             <p className="panel-sub">Diversified portfolio for long-term growth</p>
@@ -165,7 +157,6 @@ function InvestorTrack() {
 
         </div>
 
-        {/* MILESTONES */}
         <div className="track-panel" style={{ marginBottom: 16 }}>
           <p className="panel-label">Investor Milestones</p>
           <div className="milestone-progress-row">
@@ -184,7 +175,6 @@ function InvestorTrack() {
           </div>
         </div>
 
-        {/* EDUCATION TILES */}
         <div className="edu-grid">
           <div className="edu-tile">
             <p className="edu-title">What is an ETF?</p>
@@ -200,7 +190,6 @@ function InvestorTrack() {
           </div>
         </div>
 
-        {/* RECOMMENDATION */}
         <div className="recommendation-panel">
           <p className="rec-label">Recommended Next Step</p>
           <p className="rec-text">

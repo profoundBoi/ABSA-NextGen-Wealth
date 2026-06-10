@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap');
 
-/* ─── BASE ────────────────────────────────────────────────────────────────── */
 .login-page {
   min-height: 100vh;
   background: #060d12;
@@ -12,7 +11,6 @@
   overflow: hidden;
 }
 
-/* ─── MESH BACKGROUND (same as rest of app) ───────────────────────────────── */
 .mesh-bg {
   position: fixed;
   inset: 0;
@@ -61,7 +59,6 @@
 @keyframes drift2 { from { transform: translate(0,0) scale(1); } to { transform: translate(70px,-50px) scale(1.06); } }
 @keyframes drift3 { from { transform: translate(0,0); } to { transform: translate(-35px,45px); } }
 
-/* ─── CONTAINER ───────────────────────────────────────────────────────────── */
 .login-container {
   position: relative;
   z-index: 1;
@@ -74,7 +71,6 @@
   gap: 24px;
 }
 
-/* ─── BRAND ───────────────────────────────────────────────────────────────── */
 .login-brand {
   display: flex;
   flex-direction: column;
@@ -106,7 +102,6 @@
   text-transform: uppercase;
 }
 
-/* ─── CARD ────────────────────────────────────────────────────────────────── */
 .login-card {
   width: 100%;
   background: #0c1a21;
@@ -131,7 +126,6 @@
   line-height: 1.6;
 }
 
-/* ─── FORM ────────────────────────────────────────────────────────────────── */
 .login-form {
   display: flex;
   flex-direction: column;
@@ -178,7 +172,6 @@
   color: #4d6b66;
 }
 
-/* ─── ERROR ───────────────────────────────────────────────────────────────── */
 .login-error {
   font-size: 13px;
   color: #ff8fa3;
@@ -189,7 +182,6 @@
   font-family: 'DM Sans', sans-serif;
 }
 
-/* ─── BUTTON ──────────────────────────────────────────────────────────────── */
 .login-btn {
   width: 100%;
   padding: 15px;
@@ -215,7 +207,6 @@
   transform: translateY(0);
 }
 
-/* ─── SWITCH ──────────────────────────────────────────────────────────────── */
 .login-switch {
   margin-top: 24px;
   text-align: center;
@@ -234,7 +225,6 @@
   color: #e8193d;
 }
 
-/* ─── DISCLAIMER ──────────────────────────────────────────────────────────── */
 .login-disclaimer {
   font-size: 11px;
   color: #4d6b66;
@@ -242,7 +232,6 @@
   line-height: 1.6;
 }
 
-/* ─── RESPONSIVE ──────────────────────────────────────────────────────────── */
 @media (max-width: 480px) {
   .login-card {
     padding: 32px 24px;
