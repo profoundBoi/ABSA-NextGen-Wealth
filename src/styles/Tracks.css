@@ -256,11 +256,9 @@
   text-align: right;
 }
 
-/* ─── RECOMMENDATION PANEL ────────────────────────────────────────────────── */
 .recommendation-panel {
   background: #0c1a21;
   border: 1px solid rgba(255,255,255,0.06);
-  border-left: 2px solid #c0002f;
   border-radius: 20px;
   padding: 28px 32px;
   margin-bottom: 16px;
@@ -355,7 +353,6 @@
   background: rgba(42,168,154,0.05);
 }
 
-/* ─── RESPONSIVE ──────────────────────────────────────────────────────────── */
 @media (max-width: 900px) {
   .tracks-content { padding: 32px 24px 60px; }
   .page-title { font-size: 32px; }

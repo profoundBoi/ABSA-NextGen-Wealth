@@ -104,9 +104,7 @@
 .simulation-intro {
   background: var(--surface);
   border: 1px solid var(--border);
-
   border-radius: var(--radius-lg);
-
   padding: 32px;
   margin-bottom: 40px;
 }
@@ -126,21 +124,13 @@
 
 .intro-highlight {
   margin-top: 20px;
-
   background: rgba(192,0,47,0.08);
   border: 1px solid rgba(192,0,47,0.2);
-
   color: #ff8fa3;
-
   padding: 16px;
   border-radius: 14px;
-
   font-size: 14px;
 }
-
-/* =========================================
-   SIMULATION LAB CARDS
-========================================= */
 
 .simulation-cards {
   display: grid;
@@ -150,15 +140,10 @@
 
 .sim-card {
   background: var(--surface);
-
   border: 1px solid var(--border);
-
   border-radius: var(--radius-lg);
-
   padding: 32px;
-
   transition: all .25s ease;
-
   display: flex;
   flex-direction: column;
 }
@@ -207,10 +192,6 @@
   background: var(--red-light);
 }
 
-/* =========================================
-   STUDIO
-========================================= */
-
 .studio-container {
   display: grid;
   grid-template-columns: 1fr 1.2fr 1fr;
@@ -220,11 +201,8 @@
 .studio-side,
 .studio-center {
   background: var(--surface);
-
   border: 1px solid var(--border);
-
   border-radius: var(--radius-lg);
-
   padding: 28px;
 }
 
@@ -235,37 +213,21 @@
   font-size: 18px;
 }
 
-/* =========================================
-   OUTPUT BOXES
-========================================= */
-
 .output {
   background: var(--surface-2);
-
   border: 1px solid var(--border);
-
-  border-left: 3px solid var(--red);
-
   border-radius: 14px;
-
   padding: 16px;
   margin-bottom: 14px;
-
   font-size: 14px;
   font-weight: 500;
-
   line-height: 1.6;
 }
-
-/* =========================================
-   FORM
-========================================= */
 
 .input-group {
   display: flex;
   flex-direction: column;
   gap: 6px;
-
   margin-bottom: 18px;
 }
 
@@ -283,15 +245,10 @@
 
 .studio-center input {
   width: 100%;
-
   padding: 14px 16px;
-
   background: var(--surface-2);
-
   border: 1px solid var(--border);
-
   border-radius: 12px;
-
   color: white;
   font-size: 14px;
 }
@@ -303,22 +260,14 @@
 
 .studio-center button {
   width: 100%;
-
   margin-top: 10px;
-
   background: var(--red);
-
   color: white;
-
   border: none;
   border-radius: 999px;
-
   padding: 14px;
-
   font-weight: 700;
-
   cursor: pointer;
-
   transition: .2s;
 }
 
@@ -326,30 +275,15 @@
   background: var(--red-light);
 }
 
-/* =========================================
-   RECOMMENDATIONS
-========================================= */
-
 .pill {
   margin-top: 24px;
-
   background: var(--surface);
-
   border: 1px solid rgba(42,168,154,0.2);
-  border-left: 4px solid var(--teal);
-
   border-radius: 16px;
-
   padding: 20px;
-
   color: var(--text-1);
-
   line-height: 1.7;
 }
-
-/* =========================================
-   RESPONSIVE
-========================================= */
 
 @media (max-width: 1000px) {
   .studio-container {
