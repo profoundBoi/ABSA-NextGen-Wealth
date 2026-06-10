@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+/* ─── BASE ────────────────────────────────────────────────────────────────── */
+.login-page {
+  min-height: 100vh;
+  background: #060d12;
+  font-family: 'DM Sans', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ─── MESH BACKGROUND (same as rest of app) ───────────────────────────────── */
+.mesh-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.mesh-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(110px);
+  opacity: 0.45;
+}
+
+.mesh-orb-1 {
+  width: 700px; height: 700px;
+  top: -200px; right: -150px;
+  background: radial-gradient(circle, #0a2a36 0%, transparent 70%);
+  animation: drift1 20s ease-in-out infinite alternate;
+}
+
+.mesh-orb-2 {
+  width: 500px; height: 500px;
+  bottom: 5%; left: -120px;
+  background: radial-gradient(circle, #180810 0%, transparent 70%);
+  animation: drift2 25s ease-in-out infinite alternate;
+}
+
+.mesh-orb-3 {
+  width: 380px; height: 380px;
+  top: 50%; left: 38%;
+  background: radial-gradient(circle, #071820 0%, transparent 70%);
+  animation: drift3 17s ease-in-out infinite alternate;
+}
+
+.mesh-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+  background-size: 52px 52px;
+}
+
+@keyframes drift1 { from { transform: translate(0,0) scale(1); } to { transform: translate(-50px,70px) scale(1.08); } }
+@keyframes drift2 { from { transform: translate(0,0) scale(1); } to { transform: translate(70px,-50px) scale(1.06); } }
+@keyframes drift3 { from { transform: translate(0,0); } to { transform: translate(-35px,45px); } }
+
+/* ─── CONTAINER ───────────────────────────────────────────────────────────── */
+.login-container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 420px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+/* ─── BRAND ───────────────────────────────────────────────────────────────── */
+.login-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.login-logo-ring {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 2px solid #c0002f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: #c0002f;
+  box-shadow: 0 0 24px rgba(192,0,47,0.2);
+}
+
+.login-brand-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #8fa8a3;
+  text-transform: uppercase;
+}
+
+/* ─── CARD ────────────────────────────────────────────────────────────────── */
+.login-card {
+  width: 100%;
+  background: #0c1a21;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 28px;
+  padding: 40px 36px;
+}
+
+.login-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+  color: #f0f4f3;
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+}
+
+.login-sub {
+  font-size: 13px;
+  color: #8fa8a3;
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+
+/* ─── FORM ────────────────────────────────────────────────────────────────── */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.login-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.login-input-group label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #4d6b66;
+}
+
+.login-input-group input {
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: #060d12;
+  color: #f0f4f3;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.login-input-group input:focus {
+  border-color: rgba(192,0,47,0.5);
+}
+
+.login-input-group input::placeholder {
+  color: #4d6b66;
+}
+
+.login-input-group small {
+  font-size: 11px;
+  color: #4d6b66;
+}
+
+/* ─── ERROR ───────────────────────────────────────────────────────────────── */
+.login-error {
+  font-size: 13px;
+  color: #ff8fa3;
+  background: rgba(192,0,47,0.08);
+  border: 1px solid rgba(192,0,47,0.2);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* ─── BUTTON ──────────────────────────────────────────────────────────────── */
+.login-btn {
+  width: 100%;
+  padding: 15px;
+  margin-top: 8px;
+  border-radius: 12px;
+  border: none;
+  background: #c0002f;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.login-btn:hover {
+  background: #e8193d;
+  transform: translateY(-1px);
+}
+
+.login-btn:active {
+  transform: translateY(0);
+}
+
+/* ─── SWITCH ──────────────────────────────────────────────────────────────── */
+.login-switch {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 13px;
+  color: #4d6b66;
+}
+
+.login-switch span {
+  color: #c0002f;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.login-switch span:hover {
+  color: #e8193d;
+}
+
+/* ─── DISCLAIMER ──────────────────────────────────────────────────────────── */
+.login-disclaimer {
+  font-size: 11px;
+  color: #4d6b66;
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* ─── RESPONSIVE ──────────────────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .login-card {
+    padding: 32px 24px;
+    border-radius: 20px;
+  }
+}

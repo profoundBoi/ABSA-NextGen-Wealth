@@ -4,7 +4,9 @@ import "../styles/Home.css";
 import { calculatePAYE } from "../utils/calculations";
 
 function Home() {
-  const { userData } = useContext(UserContext);
+  const { userData, session } = useContext(UserContext);
+  const firstName = session?.name?.split(" ")[0] || "Account";
+  const initials = session?.name?.split(" ").map(n => n[0]).join("").toUpperCase().slice(0,2) || "JD";
 
   const income = Number(userData.income) || 0;
   const rent = Number(userData.rent) || 0;
@@ -28,7 +30,7 @@ function Home() {
   const notifications = [
     netIncome < 0 && { type: "danger", icon: "↓", text: "Your expenses exceed your after-tax income" },
     rent > income * 0.3 && income > 0 && { type: "warning", icon: "⌂", text: "Housing costs exceed 30% of gross income" },
-    !hasEmergencyFund && { type: "info", icon: "!", text: "No emergency fund detected, start building one" },
+    !hasEmergencyFund && { type: "info", icon: "!", text: "No emergency fund detected — start building one" },
   ].filter(Boolean);
 
   return (
@@ -47,17 +49,17 @@ function Home() {
           <div className="header-left">
             <h1 className="header-title">Dashboard</h1>
             <p className="header-sub">
-              Your income, tax, expenses and savings all in one place.
+              Your income, tax, expenses and savings — all in one place.
             </p>
           </div>
 
           <div className="header-right">
             <div className="profile-badge">
               <div className="profile-avatar">
-                <span>JD</span>
+                <span>{initials}</span>
               </div>
               <div className="profile-info">
-                <p className="profile-name">Account Holder</p>
+                <p className="profile-name">{session?.name || "Account Holder"}</p>
                 <p className="profile-status">
                   <span className="status-dot" />
                   Active
@@ -93,7 +95,7 @@ function Home() {
             </div>
 
             <div className="metric-card">
-              <div className="metric-tag">After Tax Income</div>
+              <div className="metric-tag">After-Tax Income</div>
               <div className="metric-value">R{Math.round(afterTaxIncome).toLocaleString()}</div>
               <div className="metric-sub">Take-home pay</div>
             </div>
@@ -186,7 +188,7 @@ function Home() {
             <div className="emergency-left">
               <p className="emergency-title">3-Month Expense Buffer</p>
               <p className="emergency-desc">
-                Financial advisors recommend holding 3-6 months of expenses in an accessible
+                Financial advisors recommend holding 3–6 months of expenses in an accessible
                 emergency fund. This protects you from unexpected job loss, medical costs, or
                 large repairs.
               </p>
