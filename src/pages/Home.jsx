@@ -49,7 +49,7 @@ function Home() {
           <div className="header-left">
             <h1 className="header-title">Dashboard</h1>
             <p className="header-sub">
-              Your income, tax, expenses and savings — all in one place.
+              Your income, tax, expenses and savings, all in one place.
             </p>
           </div>
 
